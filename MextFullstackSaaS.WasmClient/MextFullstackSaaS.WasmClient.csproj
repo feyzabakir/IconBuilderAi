@@ -32,6 +32,9 @@
 
   <ItemGroup>
     <None Include="Components\NavBar.razor" />
+    <None Include="wwwroot\images\.DS_Store" />
+    <None Include="wwwroot\images\DesignType\.DS_Store" />
+    <None Include="wwwroot\images\ModelType\.DS_Store" />
   </ItemGroup>
 
 </Project>

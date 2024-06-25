@@ -22,9 +22,6 @@ namespace MextFullstackSaaS.Infrastructure.Persistence.Contexts
         {
             base.OnModelCreating(builder);
 
-            //builder.ApplyConfiguration(new OrderConfiguration());
-            //builder.ApplyConfiguration(new UserBalanceConfiguration());
-            //builder.ApplyConfiguration(new UserBalanceHistoryConfiguration());
 
             builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
         }
