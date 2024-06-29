@@ -1,4 +1,5 @@
 ﻿@page "/login"
+@layout AuthLayout
 @using System.Net
 @using Blazored.LocalStorage
 @using MextFullstackSaaS.Application.Common.Models
@@ -152,9 +153,9 @@
                 if (response.StatusCode == HttpStatusCode.BadRequest)
                 {
                     var responseDto = await response.Content.ReadFromJsonAsync<ResponseDto<JwtDto>>();
-                    
+
                     errors = responseDto.Errors;
-                    
+
                     ToasterService.ShowWarning(responseDto.Message);
                 }
                 else
@@ -162,7 +163,7 @@
                     ToasterService.ShowError($"Beklenmedik bir hata olustu. Response Code:{response.StatusCode}");
                 }
 
-               
+
             }
 
         }
@@ -178,9 +179,9 @@
     }
 
     // Handle Google sign-in
-    private async Task HandleGoogleLogin()
+    private void HandleGoogleLogin()
     {
-        // Handle Google sign-in logic here
+        NavigationManager.NavigateTo("http://localhost:5121/api/UsersAuth/signin-google/signin-google-start");
     }
 
     // Handle forgot password link click
@@ -192,6 +193,6 @@
     // Handle create account link click
     private async Task HandleCreateAccount()
     {
-        // Implement create account logic here
+        NavigationManager.NavigateTo("/register");
     }
 }

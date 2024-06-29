@@ -13,11 +13,6 @@ namespace MextFullstackSaaS.WebApi.Hubs
             _mediatr = mediatr;
         }
 
-        public async Task NewOrderAddedAsync()
-        {
-            
-        }
-
         public Task<List<string>> GetAllCommunityAsync()
         {
             return _mediatr.Send(new OrderGetAllCommunityQuery());

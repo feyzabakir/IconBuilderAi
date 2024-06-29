@@ -6,7 +6,6 @@ namespace MextFullstackSaaS.Application.Features.Orders.Queries.GetAllCommunity
 {
     public class OrderGetAllCommunityQueryHandler : IRequestHandler<OrderGetAllCommunityQuery, List<string>>
     {
-
         private readonly IApplicationDbContext _applicationDbContext;
 
         public OrderGetAllCommunityQueryHandler(IApplicationDbContext applicationDbContext)
@@ -22,7 +21,9 @@ namespace MextFullstackSaaS.Application.Features.Orders.Queries.GetAllCommunity
                 .Select(x=>x.Urls)
                 .ToListAsync(cancellationToken);
 
-           var urls =urlsLists.SelectMany(x=>x).ToList();
+           var urls =urlsLists
+                .SelectMany(x=>x)
+                .ToList();
 
             return urls;
         }
